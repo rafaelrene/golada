@@ -1,0 +1,9 @@
+name = "golada"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["René Rafael"]
+maintainers = ["René Rafael <skreciprodukcia+programming@gmail.com>"]
+maintainers-logins = ["rafaelrene"]
+
+executables = ["golada"]
