@@ -1,4 +1,5 @@
-with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 
 procedure Golada is
   type Cell is (Alive, Dead);
@@ -27,8 +28,6 @@ procedure Golada is
 
       Put_Line ("]");
     end loop;
-
-    Put_Line ("");
   end Print_Board;
 
   function Count_Live_Neighbors
@@ -80,14 +79,19 @@ procedure Golada is
       end loop;
     end loop;
 
-    Put_Line ("");
-
     return Result;
   end Step_Board;
 begin
+
   loop
     Print_Board (B);
 
     B := Step_Board (B);
+
+    -- Ada has problem with concatination so we're hardcoding `20` in there.
+    Put (Character'Val (8#033#) & "[20A");
+    Put (Character'Val (8#033#) & "[20D");
+
+    delay 0.1;
   end loop;
 end Golada;
