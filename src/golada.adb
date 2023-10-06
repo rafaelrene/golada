@@ -2,14 +2,14 @@ with Ada.Text_IO; use Ada.Text_IO;
 
 procedure Golada is
   type Cell is (Alive, Dead);
-  type BoardRow is mod 5;
-  type BoardColumn is mod 5;
+  type BoardRow is mod 20;
+  type BoardColumn is mod 20;
   type Board is array (BoardRow, BoardColumn) of Cell;
   type LiveNeighbors is range 0 .. 8;
 
   B : Board :=
-   ((others => Dead), (others => Dead), (Dead, Alive, Alive, Alive, Dead),
-    others => (others => Dead));
+   ((Dead, Alive, Dead, others => Dead), (Dead, Dead, Alive, others => Dead),
+    (Alive, Alive, Alive, others => Dead), others => (others => Dead));
 
   procedure Print_Board (B : in Board) is
   begin
